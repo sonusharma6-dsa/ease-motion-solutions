@@ -1,0 +1,76 @@
+.em-loaders-grid {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  justify-content: center;
+}
+
+.em-loader {
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+}
+
+/* Spinner */
+.em-loader-spin {
+  border: 3px solid #e5e7eb;
+  border-top-color: #6c63ff;
+  animation: em-loader-kf-rotate 0.8s linear infinite;
+}
+
+/* Pulse */
+.em-loader-pulse {
+  background-color: #6c63ff;
+  animation: em-loader-kf-pulse 1.2s ease-in-out infinite;
+}
+
+/* Ping */
+.em-loader-ping {
+  background-color: rgba(108, 99, 255, 0.4);
+  animation: em-loader-kf-ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* Staggered bouncing dots */
+.em-loader-dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 12px;
+}
+
+.em-loader-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #6c63ff;
+  border-radius: 50%;
+  animation: em-loader-kf-bounce 1s infinite alternate;
+}
+
+.em-loader-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.em-loader-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes em-loader-kf-rotate {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes em-loader-kf-pulse {
+  0%, 100% { transform: scale(0.6); opacity: 0.4; }
+  50% { transform: scale(1.1); opacity: 1; }
+}
+
+@keyframes em-loader-kf-ping {
+  75%, 100% { transform: scale(2); opacity: 0; }
+}
+
+@keyframes em-loader-kf-bounce {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-8px); }
+}

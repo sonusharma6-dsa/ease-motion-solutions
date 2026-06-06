@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated Loaders Demo — EaseMotion CSS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background-color: #f9fafb;
+      margin: 0;
+      padding: 3rem 1.5rem;
+      font-family: 'Inter', sans-serif;
+      color: #1f2937;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    h1 {
+      font-size: 2.25rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #111827;
+      text-align: center;
+    }
+    p.subtitle {
+      color: #6b7280;
+      text-align: center;
+      margin-bottom: 3rem;
+      font-size: 1.125rem;
+    }
+    .demo-box {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 3rem 2rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+    .loader-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 1.5rem;
+      min-width: 100px;
+      flex: 1;
+    }
+    .loader-name {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #4b5563;
+    }
+    .flex-row {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Animated Loading Indicators</h1>
+    <p class="subtitle">A set of clean loading spinner animations and feedback progress cues.</p>
+
+    <div class="demo-box">
+      <div class="flex-row">
+        <!-- Spinner -->
+        <div class="loader-card">
+          <div class="em-loader em-loader-spin"></div>
+          <span class="loader-name">Spinning Ring</span>
+        </div>
+
+        <!-- Pulse -->
+        <div class="loader-card">
+          <div class="em-loader em-loader-pulse"></div>
+          <span class="loader-name">Scaling Pulse</span>
+        </div>
+
+        <!-- Ping -->
+        <div class="loader-card">
+          <div class="em-loader em-loader-ping"></div>
+          <span class="loader-name">Glowing Ping</span>
+        </div>
+
+        <!-- Dots -->
+        <div class="loader-card">
+          <div class="em-loader-dots">
+            <div class="em-loader-dot"></div>
+            <div class="em-loader-dot"></div>
+            <div class="em-loader-dot"></div>
+          </div>
+          <span class="loader-name">Bouncing Dots</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
