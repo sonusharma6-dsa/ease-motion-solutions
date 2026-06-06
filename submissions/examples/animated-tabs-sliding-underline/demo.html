@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sliding Underline Tabs Demo — EaseMotion CSS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background-color: #f9fafb;
+      margin: 0;
+      padding: 3rem 1.5rem;
+      font-family: 'Inter', sans-serif;
+      color: #1f2937;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    h1 {
+      font-size: 2.25rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #111827;
+      text-align: center;
+    }
+    p.subtitle {
+      color: #6b7280;
+      text-align: center;
+      margin-bottom: 3rem;
+      font-size: 1.125rem;
+    }
+    .demo-box {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+    .panel-content {
+      padding: 1.5rem 0.5rem;
+      line-height: 1.6;
+      color: #4b5563;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Sliding Underline Tabs</h1>
+    <p class="subtitle">Organize content panels with a smooth CSS-sliding active underline indicator.</p>
+
+    <div class="demo-box">
+      <div class="em-tabs">
+        <!-- Input state controllers -->
+        <input type="radio" id="em-tab-1" name="em-tabs-demo" class="em-tab-input" checked />
+        <input type="radio" id="em-tab-2" name="em-tabs-demo" class="em-tab-input" />
+        <input type="radio" id="em-tab-3" name="em-tabs-demo" class="em-tab-input" />
+        
+        <!-- Navigation bar -->
+        <div class="em-tabs-nav">
+          <label for="em-tab-1" class="em-tab-label">Overview</label>
+          <label for="em-tab-2" class="em-tab-label">Features</label>
+          <label for="em-tab-3" class="em-tab-label">Settings</label>
+          <div class="em-tab-underline"></div>
+        </div>
+        
+        <!-- Tab panel content wrapper -->
+        <div class="em-tabs-content">
+          <div id="em-panel-1" class="em-tab-panel">
+            <div class="panel-content">
+              <strong>Overview Panel:</strong> Welcome to the new sliding tabs component! This component provides a clean way to toggle view elements with a smooth underline animation built with standard CSS translations.
+            </div>
+          </div>
+          
+          <div id="em-panel-2" class="em-tab-panel">
+            <div class="panel-content">
+              <strong>Features Panel:</strong>
+              <ul>
+                <li>Pure-CSS structure (zero JS required)</li>
+                <li>Performance-first GPU acceleration for sliding transition</li>
+                <li>Smooth fading animations for content loading</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div id="em-panel-3" class="em-tab-panel">
+            <div class="panel-content">
+              <strong>Settings Panel:</strong> Configure options relative to the layout variables. You can easily adjust active themes, color values, and spacing variables locally.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
