@@ -1,0 +1,253 @@
+/* ============================================================
+   EaseMotion CSS — Theme Tokens (CSS Custom Properties)
+   A self-contained set of theme tokens (variables) that allow
+   users to customize colors, durations, easings, spacing, and
+   sizing for any EaseMotion-powered page — without modifying
+   the core stylesheet.
+
+   Override any token at :root, on a parent element, or inline
+   to instantly re-theme an entire animated interface.
+   ============================================================ */
+
+/* ── 1. Theme Token Definitions (defaults) ───────────────────── */
+
+:root {
+  /* ── Brand Colors ───────────────────────────────────────── */
+  --ease-theme-primary:        #6c63ff;
+  --ease-theme-primary-soft:   rgba(108, 99, 255, 0.15);
+  --ease-theme-secondary:      #8b5cf6;
+  --ease-theme-accent:         #ec4899;
+
+  /* ── Semantic Colors ────────────────────────────────────── */
+  --ease-theme-success:        #22c55e;
+  --ease-theme-danger:         #ef4444;
+  --ease-theme-warning:        #f59e0b;
+  --ease-theme-info:           #3b82f6;
+
+  /* ── Surfaces ───────────────────────────────────────────── */
+  --ease-theme-bg:             #0f172a;
+  --ease-theme-surface:        #1e293b;
+  --ease-theme-surface-raised: #334155;
+  --ease-theme-text:           #f1f5f9;
+  --ease-theme-text-muted:     #94a3b8;
+  --ease-theme-border:         rgba(255, 255, 255, 0.08);
+
+  /* ── Animation Duration Tokens ──────────────────────────── */
+  --ease-theme-duration-instant: 80ms;
+  --ease-theme-duration-fast:    200ms;
+  --ease-theme-duration-base:    350ms;
+  --ease-theme-duration-slow:    600ms;
+  --ease-theme-duration-slower:  1000ms;
+
+  /* ── Easing Tokens ──────────────────────────────────────── */
+  --ease-theme-ease-linear:     linear;
+  --ease-theme-ease-in:         cubic-bezier(0.4, 0, 1, 1);
+  --ease-theme-ease-out:        cubic-bezier(0, 0, 0.2, 1);
+  --ease-theme-ease-in-out:     cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-theme-ease-bounce:     cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-theme-ease-elastic:    cubic-bezier(0.68, -0.55, 0.27, 1.55);
+
+  /* ── Spacing Scale Tokens ───────────────────────────────── */
+  --ease-theme-space-1:  0.25rem;
+  --ease-theme-space-2:  0.5rem;
+  --ease-theme-space-3:  0.75rem;
+  --ease-theme-space-4:  1rem;
+  --ease-theme-space-5:  1.5rem;
+  --ease-theme-space-6:  2rem;
+  --ease-theme-space-8:  3rem;
+
+  /* ── Sizing / Radius Tokens ─────────────────────────────── */
+  --ease-theme-radius-sm:  0.25rem;
+  --ease-theme-radius-md:  0.5rem;
+  --ease-theme-radius-lg:  1rem;
+  --ease-theme-radius-xl:  1.5rem;
+  --ease-theme-radius-pill: 9999px;
+}
+
+/* ── 2. Auto Dark/Light mode switching ─────────────────────── */
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --ease-theme-bg:             #f8fafc;
+    --ease-theme-surface:        #ffffff;
+    --ease-theme-surface-raised: #f1f5f9;
+    --ease-theme-text:           #0f172a;
+    --ease-theme-text-muted:     #475569;
+    --ease-theme-border:         rgba(0, 0, 0, 0.08);
+  }
+}
+
+/* ── 3. Reduced motion override ────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --ease-theme-duration-instant: 0ms;
+    --ease-theme-duration-fast:    0ms;
+    --ease-theme-duration-base:    0ms;
+    --ease-theme-duration-slow:    0ms;
+    --ease-theme-duration-slower:  0ms;
+  }
+}
+
+/* ── 4. Themed Components Consuming the Tokens ─────────────── */
+/*    These show that overriding tokens re-themes the whole UI. */
+
+/* Card that animates in on load using theme tokens */
+.theme-card {
+  background: var(--ease-theme-surface);
+  color: var(--ease-theme-text);
+  border: 1px solid var(--ease-theme-border);
+  border-radius: var(--ease-theme-radius-lg);
+  padding: var(--ease-theme-space-5);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition:
+    transform   var(--ease-theme-duration-base) var(--ease-theme-ease-out),
+    box-shadow  var(--ease-theme-duration-base) var(--ease-theme-ease-out),
+    border-color var(--ease-theme-duration-base) var(--ease-theme-ease-out);
+  animation: theme-card-enter var(--ease-theme-duration-slow) var(--ease-theme-ease-bounce) both;
+}
+
+.theme-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--ease-theme-primary);
+  box-shadow:
+    0 12px 24px rgba(0, 0, 0, 0.25),
+    0 0 0 4px var(--ease-theme-primary-soft);
+}
+
+/* Primary button using theme tokens */
+.theme-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ease-theme-space-2);
+  padding: var(--ease-theme-space-3) var(--ease-theme-space-5);
+  background: var(--ease-theme-primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--ease-theme-radius-md);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition:
+    background   var(--ease-theme-duration-fast) var(--ease-theme-ease-in-out),
+    transform    var(--ease-theme-duration-fast) var(--ease-theme-ease-bounce),
+    box-shadow   var(--ease-theme-duration-fast) var(--ease-theme-ease-in-out);
+}
+
+.theme-btn:hover {
+  background: var(--ease-theme-secondary);
+  transform: scale(1.05);
+  box-shadow: 0 0 16px var(--ease-theme-primary-soft);
+}
+
+.theme-btn:active {
+  transform: scale(0.97);
+}
+
+/* Pulse badge using theme tokens */
+.theme-badge {
+  display: inline-block;
+  padding: var(--ease-theme-space-1) var(--ease-theme-space-3);
+  background: var(--ease-theme-primary-soft);
+  color: var(--ease-theme-primary);
+  border-radius: var(--ease-theme-radius-pill);
+  font-size: 0.8rem;
+  font-weight: 600;
+  animation: theme-pulse var(--ease-theme-duration-slower) var(--ease-theme-ease-in-out) infinite;
+}
+
+/* Floating element using theme tokens */
+.theme-float {
+  display: inline-block;
+  padding: var(--ease-theme-space-3) var(--ease-theme-space-4);
+  background: var(--ease-theme-accent);
+  color: #fff;
+  border-radius: var(--ease-theme-radius-md);
+  animation: theme-float-y var(--ease-theme-duration-slower) var(--ease-theme-ease-in-out) infinite;
+}
+
+/* Alert / Toast using theme tokens */
+.theme-alert {
+  display: flex;
+  align-items: center;
+  gap: var(--ease-theme-space-3);
+  padding: var(--ease-theme-space-3) var(--ease-theme-space-4);
+  background: var(--ease-theme-surface);
+  border-left: 4px solid var(--ease-theme-info);
+  color: var(--ease-theme-text);
+  border-radius: var(--ease-theme-radius-sm);
+  margin-bottom: var(--ease-theme-space-3);
+  animation: theme-slide-in-left var(--ease-theme-duration-slow) var(--ease-theme-ease-out) both;
+}
+
+.theme-alert--success { border-left-color: var(--ease-theme-success); }
+.theme-alert--danger  { border-left-color: var(--ease-theme-danger);  }
+.theme-alert--warning { border-left-color: var(--ease-theme-warning); }
+.theme-alert--info    { border-left-color: var(--ease-theme-info);    }
+
+/* ── 5. Keyframes ──────────────────────────────────────────── */
+
+@keyframes theme-card-enter {
+  from { opacity: 0; transform: translateY(20px) scale(0.95); }
+  to   { opacity: 1; transform: translateY(0)    scale(1);    }
+}
+
+@keyframes theme-pulse {
+  0%, 100% { transform: scale(1);    opacity: 1;   }
+  50%      { transform: scale(1.08); opacity: 0.8; }
+}
+
+@keyframes theme-float-y {
+  0%, 100% { transform: translateY(0);    }
+  50%      { transform: translateY(-10px); }
+}
+
+@keyframes theme-slide-in-left {
+  from { opacity: 0; transform: translateX(-30px); }
+  to   { opacity: 1; transform: translateX(0);     }
+}
+
+/* ── 6. Theme Variant Utility Classes ──────────────────────── */
+/*    Apply these to <html> or any container to switch themes. */
+
+[data-theme="ocean"] {
+  --ease-theme-primary:       #0ea5e9;
+  --ease-theme-primary-soft:  rgba(14, 165, 233, 0.15);
+  --ease-theme-secondary:     #06b6d4;
+  --ease-theme-accent:        #14b8a6;
+}
+
+[data-theme="sunset"] {
+  --ease-theme-primary:       #f97316;
+  --ease-theme-primary-soft:  rgba(249, 115, 22, 0.15);
+  --ease-theme-secondary:     #ef4444;
+  --ease-theme-accent:        #ec4899;
+}
+
+[data-theme="forest"] {
+  --ease-theme-primary:       #16a34a;
+  --ease-theme-primary-soft:  rgba(22, 163, 74, 0.15);
+  --ease-theme-secondary:     #84cc16;
+  --ease-theme-accent:        #eab308;
+}
+
+[data-theme="rose"] {
+  --ease-theme-primary:       #f43f5e;
+  --ease-theme-primary-soft:  rgba(244, 63, 94, 0.15);
+  --ease-theme-secondary:     #d946ef;
+  --ease-theme-accent:        #a855f7;
+}
+
+/* Faster animation variant */
+[data-motion="snappy"] {
+  --ease-theme-duration-base:   150ms;
+  --ease-theme-duration-slow:    300ms;
+  --ease-theme-duration-slower:  500ms;
+}
+
+/* Slower, more dramatic animation variant */
+[data-motion="cinematic"] {
+  --ease-theme-duration-base:   600ms;
+  --ease-theme-duration-slow:    1200ms;
+  --ease-theme-duration-slower:  2000ms;
+}

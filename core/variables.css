@@ -20,6 +20,21 @@
   /* Controls how many times looping animations run by default. */
   --ease-animation-iterations: infinite;
 
+  /* ── Animation Durations ──────────────────────────────── */
+  /* Override these to globally speed up or slow down specific
+     animations across the framework. */
+  --ease-float-duration:          3s;
+  --ease-zoom-out-duration:       0.6s;
+  --ease-pulse-duration:          2s;
+  --ease-wave-duration:           2s;
+  --ease-shake-duration:          0.5s;
+  --ease-bounce-duration:         1s;
+  --ease-rotate-duration:         1.2s;
+  --ease-ping-duration:           1s;
+  --ease-shimmer-sweep-duration:  var(--ease-speed-slow, 600ms);
+  --ease-skeleton-shimmer-duration: 2s;
+  --ease-skeleton-pulse-duration:    1.5s;
+
   /* ── Color Palette ─────────────────────────────────────── */
   --ease-color-primary:       #6c63ff;
   --ease-color-primary-light: #a09af8;

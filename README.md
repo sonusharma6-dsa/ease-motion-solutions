@@ -586,25 +586,125 @@ Example showcase:
 
 ## Customization ⚙️
 
-Override any CSS custom property to theme the entire framework — no Sass, no PostCSS, just CSS:
+EaseMotion CSS exposes **60+ CSS custom properties** at the `:root` level, making it easy to match your brand without touching the source. Override any variable in your own stylesheet — your values always win.
+
+### Color Tokens
 
 ```css
 :root {
-  /* Colors */
-  --ease-color-primary:   #f97316;   /* swap to orange  */
-  --ease-color-success:   #10b981;   /* teal green      */
+  /* Brand colors */
+  --ease-color-primary:       #f97316;   /* swap to orange  */
+  --ease-color-primary-light: #fdba74;
+  --ease-color-primary-dark:  #c2410c;
 
-  /* Motion */
+  --ease-color-secondary:       #8b5cf6;
+  --ease-color-secondary-light: #a78bfa;
+  --ease-color-secondary-dark:  #7c3aed;
+
+  /* Semantic colors */
+  --ease-color-success:   #10b981;   /* teal green      */
+  --ease-color-danger:    #ef4444;
+  --ease-color-warning:   #f59e0b;
+  --ease-color-info:      #3b82f6;
+
+  /* Surface & text */
+  --ease-color-bg:        #f8fafc;
+  --ease-color-surface:   #ffffff;
+  --ease-color-text:      #1e293b;
+  --ease-color-muted:     #475569;
+}
+```
+
+### Animation Duration Tokens
+
+Control individual animation durations across the framework:
+
+```css
+:root {
+  --ease-float-duration:            3s;     /* .ease-float */
+  --ease-zoom-out-duration:         0.6s;   /* .ease-zoom-out */
+  --ease-pulse-duration:            2s;     /* .ease-pulse, .ease-pulse-border-emphasis */
+  --ease-wave-duration:             2s;     /* .ease-wave */
+  --ease-shake-duration:            0.5s;   /* .ease-shake */
+  --ease-bounce-duration:           1s;     /* .ease-bounce */
+  --ease-rotate-duration:           1.2s;   /* .ease-rotate */
+  --ease-ping-duration:             1s;     /* .ease-ping */
+  --ease-shimmer-sweep-duration:    600ms;  /* .ease-shimmer-sweep */
+  --ease-skeleton-shimmer-duration: 2s;     /* .ease-skeleton-shimmer */
+  --ease-skeleton-pulse-duration:   1.5s;   /* .ease-skeleton-pulse */
+}
+```
+
+### Motion & Easing Tokens
+
+```css
+:root {
+  /* Transition speeds */
   --ease-speed-fast:      100ms;     /* snappier        */
   --ease-speed-medium:    400ms;     /* slightly slower */
+  --ease-speed-slow:      800ms;
+
+  /* Easing curves */
+  --ease-ease:            cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-ease-out:        cubic-bezier(0, 0, 0.2, 1);
   --ease-ease-bounce:     cubic-bezier(0.34, 1.56, 0.64, 1);
 
-  /* Shape */
+  /* Loop control */
+  --ease-animation-iterations: 3;    /* 3 loops instead of infinite */
+}
+```
+
+### Shape, Spacing & Layout Tokens
+
+```css
+:root {
+  /* Border radius */
   --ease-radius-md:       1rem;      /* rounder corners */
   --ease-radius-full:     9999px;
 
   /* Shadows */
   --ease-shadow-md:       0 4px 20px rgba(0,0,0,0.15);
+
+  /* Spacing (rem-based scale) */
+  --ease-space-1:   0.25rem;   /*  4px */
+  --ease-space-4:   1rem;      /* 16px */
+  --ease-space-8:   2rem;      /* 32px */
+  --ease-space-16:  4rem;      /* 64px */
+
+  /* Typography */
+  --ease-font-sans: 'Inter', system-ui, sans-serif;
+  --ease-text-base: 1rem;
+
+  /* Layout */
+  --ease-container-max: 1200px;
+}
+```
+
+### Full Theme Example
+
+Here is a complete example that re-themes the framework for a dark brand:
+
+```css
+:root {
+  /* Brand */
+  --ease-color-primary:       #10b981;
+  --ease-color-primary-light: #34d399;
+  --ease-color-primary-dark:  #059669;
+  --ease-color-secondary:     #06b6d4;
+
+  /* Surface */
+  --ease-color-bg:        #0f172a;
+  --ease-color-surface:   #1e293b;
+  --ease-color-text:      #e2e8f0;
+  --ease-color-muted:     #94a3b8;
+
+  /* Motion — faster for a snappy feel */
+  --ease-speed-fast:      80ms;
+  --ease-speed-medium:    200ms;
+  --ease-bounce-duration: 0.6s;
+
+  /* Shape */
+  --ease-radius-md:       0.75rem;
 }
 ```
 

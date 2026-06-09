@@ -660,11 +660,11 @@
   animation: ease-kf-bounce-in var(--ease-speed-medium) var(--ease-ease-bounce) both;
 }
 .ease-zoom-out {
-  animation: ease-zoom-out 0.6s ease-out forwards;
+  animation: ease-zoom-out var(--ease-zoom-out-duration, 0.6s) ease-out forwards;
 }
 
 .ease-float {
-  animation: ease-float 3s ease-in-out infinite;
+  animation: ease-float var(--ease-float-duration, 3s) ease-in-out infinite;
 }
 .ease-zoom-in {
   animation: ease-kf-zoom-in var(--ease-speed-medium) var(--ease-ease-bounce) both;
@@ -695,7 +695,7 @@
 }
 
 .ease-pulse-border-emphasis {
-  animation: ease-kf-pulse-border-emphasis 1.5s var(--ease-ease) infinite;
+  animation: ease-kf-pulse-border-emphasis var(--ease-pulse-duration, 2s) var(--ease-ease) infinite;
 }
 
 /* Bounce Text Emphasis
@@ -715,7 +715,7 @@
       rgba(255, 255, 255, 0.15) 50%,
       transparent 70%);
   background-size: 200% auto;
-  animation: ease-kf-shimmer-sweep var(--ease-speed-slow) var(--ease-ease) infinite;
+  animation: ease-kf-shimmer-sweep var(--ease-shimmer-sweep-duration, var(--ease-speed-slow, 600ms)) var(--ease-ease) infinite;
 }
 
 .ease-squish-button:hover,
@@ -730,7 +730,7 @@
     var(--ease-color-primary)
   );
   background-size: 200% 200%;
-  animation: ease-kf-gradient-rotation 3s var(--ease-ease) infinite;
+  animation: ease-kf-gradient-rotation var(--ease-float-duration, 3s) var(--ease-ease) infinite;
 }
 
 .ease-contract-shadow-emphasis {
@@ -765,12 +765,12 @@
       var(--ease-color-neutral-200) 40px,
       transparent 80px);
   translate: -100% 0;
-  animation: ease-kf-shimmer 2s infinite linear forwards;
+  animation: ease-kf-shimmer var(--ease-skeleton-shimmer-duration, 2s) infinite linear forwards;
 }
 
 .ease-skeleton-pulse {
   background-color: var(--ease-color-neutral-200);
-  animation: ease-kf-pulse-fade 1.5s var(--ease-ease) infinite;
+  animation: ease-kf-pulse-fade var(--ease-skeleton-pulse-duration, 1.5s) var(--ease-ease) infinite;
 }
 
 .ease-skeleton-block {
@@ -885,20 +885,20 @@
 
 /* Looping Animations */
 .ease-bounce {
-  animation: ease-kf-bounce 1s var(--ease-animation-iterations, infinite);
+  animation: ease-kf-bounce var(--ease-bounce-duration, 1s) var(--ease-animation-iterations, infinite);
 }
 
 .ease-rotate {
-  animation: ease-kf-rotate 1.2s linear var(--ease-animation-iterations, infinite);
+  animation: ease-kf-rotate var(--ease-rotate-duration, 1.2s) linear var(--ease-animation-iterations, infinite);
 }
 
 .ease-pulse {
-  animation: ease-kf-pulse 2s var(--ease-ease) var(--ease-animation-iterations, infinite);
+  animation: ease-kf-pulse var(--ease-pulse-duration, 2s) var(--ease-ease) var(--ease-animation-iterations, infinite);
 }
 
 .ease-wave {
   display: inline-block;
-  animation: ease-kf-wave 2s ease-in-out var(--ease-animation-iterations, infinite);
+  animation: ease-kf-wave var(--ease-wave-duration, 2s) ease-in-out var(--ease-animation-iterations, infinite);
 }
 
 .ease-wave:hover {
@@ -906,11 +906,11 @@
 }
 
 .ease-ping {
-  animation: ease-kf-ping 1s cubic-bezier(0, 0, 0.2, 1) var(--ease-animation-iterations, infinite);
+  animation: ease-kf-ping var(--ease-ping-duration, 1s) cubic-bezier(0, 0, 0.2, 1) var(--ease-animation-iterations, infinite);
 }
 
 .ease-shake {
-  animation: ease-kf-shake 0.5s var(--ease-ease) both;
+  animation: ease-kf-shake var(--ease-shake-duration, 0.5s) var(--ease-ease) both;
 }
 
 /* Typewriter Loop
